@@ -199,8 +199,79 @@ p{margin:0}
   .wgrid{gap:36px}
 }
 
+
+/* ---------- devices ---------- */
+.devices{padding:clamp(90px,12vw,170px) 0 clamp(70px,9vw,130px);overflow:hidden}
+.devwrap{position:relative;margin-top:clamp(30px,5vw,60px);display:flex;justify-content:center;align-items:flex-end;perspective:1800px;min-height:clamp(300px,46vw,620px)}
+.laptop{position:relative;width:min(860px,82vw);transform-style:preserve-3d}
+.lid{position:relative;width:88%;margin:0 auto;aspect-ratio:16/10;background:#11151D;border-radius:18px 18px 4px 4px;padding:1.6%;box-shadow:0 40px 80px -30px rgba(10,15,28,.45);transform-origin:50% 100%;transform:rotateX(0deg)}
+.base{position:relative;width:100%;height:clamp(10px,1.6vw,18px);background:linear-gradient(#D5DBE0,#AEB6BD);border-radius:2px 2px 18px 18px;box-shadow:0 26px 40px -18px rgba(10,15,28,.5)}
+.base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:45%;transform:translateX(-50%);background:#9EA6AE;border-radius:0 0 10px 10px}
+.screen{position:relative;width:100%;height:100%;border-radius:8px;overflow:hidden;background:#F4F7F9}
+.phone{position:absolute;right:max(2vw,calc(50% - 470px));bottom:0;width:clamp(110px,15vw,200px);aspect-ratio:9/19;background:#11151D;border-radius:clamp(18px,2.4vw,32px);padding:clamp(5px,.6vw,8px);box-shadow:0 40px 60px -24px rgba(10,15,28,.55);z-index:2}
+.phone .screen{border-radius:clamp(13px,1.9vw,25px)}
+.phone .notch{position:absolute;left:50%;top:clamp(9px,1vw,14px);width:30%;height:clamp(5px,.7vw,9px);transform:translateX(-50%);background:#11151D;border-radius:9px;z-index:3}
+.mini{position:absolute;left:0;top:0;width:100%;font-family:var(--f-head);color:var(--ink)}
+.screen.on .mini{animation:miniscroll 14s cubic-bezier(.6,0,.2,1) 1.4s infinite}
+@keyframes miniscroll{0%,18%{transform:translateY(0)}40%,58%{transform:translateY(-34%)}80%,92%{transform:translateY(-52%)}100%{transform:translateY(0)}}
+.mini .mnav{display:flex;align-items:center;justify-content:space-between;padding:3.2% 4%;background:#fff;border-bottom:1px solid #E5EAEE}
+.mini .lg{display:flex;align-items:center;gap:6px;font-weight:700;letter-spacing:-.04em}
+.mini .lg i{display:block;border-radius:22%;background:#111A2E;position:relative}
+.mini .lg i::after{content:"";position:absolute;left:20%;top:22%;width:60%;height:15%;border-radius:9px;background:var(--cyan)}
+.mini .links{display:flex;gap:12px;color:#5A626D}
+.mini .cta{background:var(--ink);color:#fff;border-radius:99px;padding:.5em 1.1em;font-weight:600}
+.mini .mhero{display:grid;grid-template-columns:1.1fr 1fr;gap:5%;padding:7% 5% 6%;align-items:center}
+.mini h4{margin:0;font-weight:700;letter-spacing:-.05em;line-height:.98}
+.mini h4 span{color:var(--mute)}
+.mini p{color:#5A626D;margin-top:.8em;line-height:1.4}
+.mini .btn2{display:inline-block;margin-top:1em;background:var(--cyan);border-radius:99px;padding:.6em 1.2em;font-weight:600}
+.mini .pic{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,#5F8F86,#203A44);position:relative;overflow:hidden}
+.mini .pic::before{content:"";position:absolute;right:14%;top:16%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--ipe)}
+.mini .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:rgba(255,255,255,.16);clip-path:polygon(0 100%,35% 20%,62% 80%,78% 45%,100% 100%)}
+.mini .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3%;padding:0 5% 6%}
+.mini .card{background:#fff;border:1px solid #E5EAEE;border-radius:10px;padding:8% 8% 10%}
+.mini .card b{display:block;font-weight:700;letter-spacing:-.03em}
+.mini .card small{color:#7D858F}
+.mini .card i{display:block;width:30%;aspect-ratio:1;border-radius:8px;background:#DDF7FC;margin-bottom:10%}
+.mini .band{margin:0 5% 6%;border-radius:12px;background:var(--ink);color:#fff;padding:6% 5%;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mini .band b{letter-spacing:-.04em}
+.mini .band span{background:#25D366;border-radius:99px;padding:.5em 1em;font-weight:600;white-space:nowrap}
+.mini .ft{padding:4% 5% 10%;color:#7D858F;display:flex;justify-content:space-between}
+/* laptop scale */
+.laptop .mini{font-size:clamp(7px,1.05vw,13px)}
+.laptop .mini .lg i{width:1.8em;height:1.8em}
+.laptop .mini h4{font-size:2.9em}
+/* phone layout */
+.phone .mini{font-size:clamp(5px,.78vw,10px)}
+.phone .mini .links{display:none}
+.phone .mini .mnav{padding:16% 7% 6%}
+.phone .mini .lg i{width:1.8em;height:1.8em}
+.phone .mini .mhero{grid-template-columns:1fr;padding:9% 7%}
+.phone .mini h4{font-size:2.6em}
+.phone .mini .cards{grid-template-columns:1fr;padding:0 7% 8%;gap:6px}
+.phone .mini .band{margin:0 7% 8%;flex-direction:column;align-items:flex-start}
+.devnote{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:clamp(28px,4vw,48px);border-top:1px solid var(--line);padding-top:16px}
+.devnote div{min-width:160px}
+@media (max-width:700px){.phone{right:2vw}.laptop{width:86vw;margin-right:12vw}}
+
+/* ---------- brand carousel ---------- */
+.brandc{padding:0 0 clamp(60px,8vw,110px)}
+.car{position:relative;margin-top:clamp(28px,4vw,48px)}
+.track{display:flex;gap:clamp(14px,1.6vw,24px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(78%,900px);scroll-snap-align:center;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff;margin:0}
+.slide img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.slide figcaption{display:flex;justify-content:space-between;padding:14px 18px;font-size:14px;color:#3B434F;border-top:1px solid var(--line)}
+.carbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:20px}
+.dots{display:flex;gap:8px}
+.dots button{width:28px;height:4px;border-radius:4px;border:0;background:#C9D1D8;padding:0;cursor:pointer;transition:all .4s}
+.dots button.on{width:52px;background:var(--ink)}
+.arrows{display:flex;gap:8px}
+.arrows button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.arrows button:hover{background:var(--ink);color:#fff}
+
 /* ---------- services ---------- */
-.services{padding:clamp(40px,6vw,90px) 0 clamp(90px,12vw,170px)}
+.services{padding:clamp(80px,10vw,150px) 0 clamp(90px,12vw,170px)}
 .group{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);padding-top:22px;margin-top:40px}
 .group > .gname{grid-column:1 / span 3;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;padding-top:14px}
 .group > .rows{grid-column:4 / span 9;display:flex;flex-direction:column}
@@ -295,6 +366,7 @@ footer .legal{display:flex;justify-content:space-between;gap:16px;padding:18px v
     <nav class="nav" aria-label="Seções">
       <a href="#sobre">Quem somos</a>
       <a href="#processo">Como fazemos</a>
+      <a href="#telas">Em qualquer tela</a>
       <a href="#servicos">Serviços</a>
     </nav>
   </div>
@@ -371,6 +443,57 @@ footer .legal{display:flex;justify-content:space-between;gap:16px;padding:18px v
     <div class="callout" data-k="stem"><span class="ln"></span><span class="dot"></span><div class="txt"><div class="label">Haste branca</div><div class="val">O cursor, o código</div></div></div>
     <div class="callout" data-k="sun"><span class="ln"></span><span class="dot"></span><div class="txt"><div class="label">Ponto amarelo</div><div class="val">O sol do Tocantins</div></div></div>
     <div class="callout" data-k="base"><span class="ln"></span><span class="dot"></span><div class="txt"><div class="label">Base</div><div class="val">O seu negócio</div></div></div>
+  </div>
+</section>
+
+<!-- DEVICES -->
+<section class="devices wrap" id="telas" aria-labelledby="tel-t">
+  <div class="sechead">
+    <div class="eyebrow"><span class="thin">Em qualquer tela</span><h2 class="heavy reveal-lines" id="tel-t"><span class="line"><span>Abre no notebook.</span></span><span class="line"><span>Abre no celular.</span></span></h2></div>
+    <p class="reveal">O mesmo site se ajusta sozinho a cada tela. No celular, onde a maioria dos seus clientes está, ele fica tão bom quanto no computador.</p>
+  </div>
+  <div class="devwrap" id="devwrap" role="img" aria-label="Um notebook e um celular abrindo o mesmo site de exemplo">
+    <div class="laptop">
+      <div class="lid" id="lid"><div class="screen" id="scrL"><div class="mini" aria-hidden="true">
+            <div class="mnav"><span class="lg"><i></i>SeuNegócio</span><span class="links"><span>Início</span><span>Serviços</span><span>Galeria</span></span><span class="cta">Orçamento</span></div>
+            <div class="mhero"><div><h4>Seu negócio, <span>do jeito certo.</span></h4><p>Preço claro, fotos reais e agendamento direto pelo WhatsApp.</p><span class="btn2">Chamar no WhatsApp</span></div><div class="pic"></div></div>
+            <div class="cards"><div class="card"><i></i><b>Serviços</b><small>Com preços</small></div><div class="card"><i style="background:#FFF4D6"></i><b>Galeria</b><small>Fotos reais</small></div><div class="card"><i></i><b>Agenda</b><small>Datas livres</small></div></div>
+            <div class="band"><b>Pronto pra agendar?</b><span>WhatsApp</span></div>
+            <div class="ft"><span>© SeuNegócio</span><span>Feito pela Tokanu</span></div>
+          </div></div></div>
+      <div class="base"></div>
+    </div>
+    <div class="phone" id="phone"><span class="notch"></span><div class="screen" id="scrP"><div class="mini" aria-hidden="true">
+            <div class="mnav"><span class="lg"><i></i>SeuNegócio</span><span class="links"><span>Início</span><span>Serviços</span><span>Galeria</span></span><span class="cta">Orçamento</span></div>
+            <div class="mhero"><div><h4>Seu negócio, <span>do jeito certo.</span></h4><p>Preço claro, fotos reais e agendamento direto pelo WhatsApp.</p><span class="btn2">Chamar no WhatsApp</span></div><div class="pic"></div></div>
+            <div class="cards"><div class="card"><i></i><b>Serviços</b><small>Com preços</small></div><div class="card"><i style="background:#FFF4D6"></i><b>Galeria</b><small>Fotos reais</small></div><div class="card"><i></i><b>Agenda</b><small>Datas livres</small></div></div>
+            <div class="band"><b>Pronto pra agendar?</b><span>WhatsApp</span></div>
+            <div class="ft"><span>© SeuNegócio</span><span>Feito pela Tokanu</span></div>
+          </div></div></div>
+  </div>
+  <div class="devnote">
+    <div><div class="label">Celular</div><div class="val">Menu simples e botão de WhatsApp à mão</div></div>
+    <div><div class="label">Notebook</div><div class="val">Layout amplo, fotos grandes</div></div>
+    <div><div class="label">Os dois</div><div class="val">Um site só, sem versão separada</div></div>
+  </div>
+</section>
+
+<!-- BRAND CAROUSEL -->
+<section class="brandc wrap" id="marca" aria-labelledby="mar-t">
+  <div class="sechead">
+    <div class="eyebrow"><span class="thin">A marca</span><h2 class="heavy reveal-lines" id="mar-t"><span class="line"><span>Uma marca, três jeitos.</span></span></h2></div>
+    <p class="reveal">No claro, no ciano ou no escuro, o T com o sol do Tocantins fica bem em qualquer lugar.</p>
+  </div>
+  <div class="car" role="region" aria-roledescription="carrossel" aria-label="Versões do logo Tokanu">
+    <div class="track" id="track">
+      <figure class="slide"><img src="img/logo-escuro.jpg" alt="Logo Tokanu em fundo escuro" width="1600" height="800"><figcaption><span>Fundo escuro</span><span>Noite #0A0F1C</span></figcaption></figure>
+      <figure class="slide"><img src="img/logo-ciano.jpg" alt="Logo Tokanu em fundo ciano" width="1600" height="800" loading="lazy"><figcaption><span>Fundo ciano</span><span>Ciano #22D3EE</span></figcaption></figure>
+      <figure class="slide"><img src="img/logo-claro.jpg" alt="Logo Tokanu em fundo branco" width="1600" height="800" loading="lazy"><figcaption><span>Fundo claro</span><span>Branco</span></figcaption></figure>
+    </div>
+    <div class="carbar">
+      <div class="dots" id="dots"><button aria-label="Slide 1" class="on"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div>
+      <div class="arrows"><button id="prev" aria-label="Slide anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button id="next" aria-label="Próximo slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
+    </div>
   </div>
 </section>
 
@@ -804,7 +927,7 @@ function initSymbol(){
   tk.innerHTML=s;
   var sarc=document.getElementById('sarc');
   if(hasGSAP && !RM){
-    ScrollTrigger.create({trigger:stage,start:'top top',end:'+=180%',pin:true,scrub:true,onUpdate:function(st){symbolP=st.progress;sarc.setAttribute('stroke-dashoffset',String(100-st.progress*100));}});
+    ScrollTrigger.create({trigger:stage,start:'top top',end:'+=110%',pin:true,scrub:true,onUpdate:function(st){symbolP=st.progress;sarc.setAttribute('stroke-dashoffset',String(100-st.progress*100));}});
   } else { symbolP=.6; sarc.setAttribute('stroke-dashoffset','40'); }
 }
 
@@ -843,6 +966,33 @@ function initDust(){
   f.addEventListener('submit',function(e){e.preventDefault();});
   build();
 })();
+
+
+/* ---------------- devices ---------------- */
+function initDevices(){
+  var lid=document.getElementById('lid'),ph=document.getElementById('phone'),L=document.getElementById('scrL'),P=document.getElementById('scrP');
+  function onScreens(){L.classList.add('on');setTimeout(function(){P.classList.add('on');},700);}
+  if(!hasGSAP||RM){onScreens();return;}
+  gsap.set(lid,{rotateX:-88}); gsap.set(ph,{yPercent:40,opacity:0,rotate:6}); gsap.set([L,P],{opacity:0});
+  var tl=gsap.timeline({scrollTrigger:{trigger:'#devwrap',start:'top 78%',once:true}});
+  tl.to(lid,{rotateX:0,duration:1.6,ease:'expo.out'})
+    .to(L,{opacity:1,duration:.6,ease:'power2.out'},'-=.9')
+    .to(ph,{yPercent:0,opacity:1,rotate:0,duration:1.2,ease:'expo.out'},'-=.7')
+    .to(P,{opacity:1,duration:.5},'-=.6')
+    .add(onScreens);
+}
+/* ---------------- brand carousel ---------------- */
+function initCarousel(){
+  var tr=document.getElementById('track'),sl=[].slice.call(tr.children),dots=[].slice.call(document.querySelectorAll('#dots button')),i=0,timer;
+  function go(n){i=(n+sl.length)%sl.length;var el=sl[i];tr.scrollTo({left:el.offsetLeft-(tr.clientWidth-el.clientWidth)/2,behavior:RM?'auto':'smooth'});}
+  function mark(){var c=tr.scrollLeft+tr.clientWidth/2,best=0,bd=1e9;sl.forEach(function(el,k){var d=Math.abs(el.offsetLeft+el.clientWidth/2-c);if(d<bd){bd=d;best=k;}});i=best;dots.forEach(function(d,k){d.classList.toggle('on',k===best);});}
+  tr.addEventListener('scroll',function(){clearTimeout(tr._t);tr._t=setTimeout(mark,80);},{passive:true});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);restart();});});
+  document.getElementById('prev').addEventListener('click',function(){go(i-1);restart();});
+  document.getElementById('next').addEventListener('click',function(){go(i+1);restart();});
+  function restart(){clearInterval(timer);if(!RM)timer=setInterval(function(){go(i+1);},4500);}
+  restart();
+}
 
 /* ---------------- reveals ---------------- */
 function initReveals(){
@@ -888,6 +1038,8 @@ function boot(){
   }
   initExplodeScroll();
   initDust();
+  try{initDevices();}catch(e){console.warn(e);}
+  try{initCarousel();}catch(e){console.warn(e);}
   initReveals();
   intro();
   if(hasGSAP) setTimeout(function(){ScrollTrigger.refresh();},300);
